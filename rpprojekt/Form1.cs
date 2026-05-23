@@ -11,15 +11,15 @@ namespace rpprojekt
 {
     public partial class Form1 : Form
     {
-        private List<Tamagotchi> pets = new List<Tamagotchi>();
-        private int selectedPetIndex = -1;
+        private List<Tamagotchi> zvirata = new List<Tamagotchi>();
+        private int vybranyIndex = -1;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void empty()
+        private void prazdno()
         {
             lblNadpisZviratko.Text = "Zviratko: -";
             lblHlad.Text = "Hlad: -";
@@ -42,23 +42,23 @@ namespace rpprojekt
             timerHra.Stop();
         }
 
-        private void stav(string message)
+        private void stav(string zprava)
         {
-            Tamagotchi pet = null;
+            Tamagotchi zviratko = null;
 
-            if (selectedPetIndex >= 0 && selectedPetIndex < pets.Count)
+            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
             {
-                pet = pets[selectedPetIndex];
+                zviratko = zvirata[vybranyIndex];
             }
 
-            if (pet == null)
+            if (zviratko == null)
             {
                 lblNadpisZviratko.Text = "Zviratko: -";
                 lblHlad.Text = "Hlad: -";
                 lblNalada.Text = "Nalada: -";
                 lblEnergie.Text = "Energie: -";
                 lblVek.Text = "Vek: -";
-                lblStav.Text = message;
+                lblStav.Text = zprava;
                 btnKrm.Enabled = false;
                 btnHraj.Enabled = false;
                 btnSpi.Enabled = false;
@@ -67,31 +67,31 @@ namespace rpprojekt
                 return;
             }
 
-            lblNadpisZviratko.Text = "Zviratko: " + pet.Name + " (" + (selectedPetIndex + 1) + "/" + pets.Count + ")";
-            lblStav.Text = message;
-            lblHlad.Text = "Hlad: " + pet.hlad + " / 100";
-            lblNalada.Text = "Nalada: " + pet.nalada + " / 100";
-            lblEnergie.Text = "Energie: " + pet.energie + " / 100";
-            lblVek.Text = "Vek: " + pet.DejVekText();
+            lblNadpisZviratko.Text = "Zviratko: " + zviratko.Name + " (" + (vybranyIndex + 1) + "/" + zvirata.Count + ")";
+            lblStav.Text = zprava;
+            lblHlad.Text = "Hlad: " + zviratko.hlad + " / 100";
+            lblNalada.Text = "Nalada: " + zviratko.nalada + " / 100";
+            lblEnergie.Text = "Energie: " + zviratko.energie + " / 100";
+            lblVek.Text = "Vek: " + zviratko.DejVekText();
 
-            pbHlad.Value = 100 - pet.hlad;
-            pbNalada.Value = pet.nalada;
-            pbEnergie.Value = pet.energie;
+            pbHlad.Value = 100 - zviratko.hlad;
+            pbNalada.Value = zviratko.nalada;
+            pbEnergie.Value = zviratko.energie;
 
-            btnKrm.Enabled = pet.zije && !pet.spi && pet.ActionCooldown == 0;
-            btnHraj.Enabled = pet.zije && !pet.spi && pet.ActionCooldown == 0;
-            btnSpi.Enabled = pet.zije && !pet.spi && pet.ActionCooldown == 0;
+            btnKrm.Enabled = zviratko.zije && !zviratko.spi && zviratko.ActionCooldown == 0;
+            btnHraj.Enabled = zviratko.zije && !zviratko.spi && zviratko.ActionCooldown == 0;
+            btnSpi.Enabled = zviratko.zije && !zviratko.spi && zviratko.ActionCooldown == 0;
             btnRestart.Enabled = true;
-            btnPrev.Enabled = pets.Count > 1;
-            btnNext.Enabled = pets.Count > 1;
+            btnPrev.Enabled = zvirata.Count > 1;
+            btnNext.Enabled = zvirata.Count > 1;
 
-            if (!pet.zije)
+            if (!zviratko.zije)
             {
-                lblStav.Text = pet.Name + " to nezvladlo. Muzes prepnout na jineho nebo ho restartovat.";
+                lblStav.Text = zviratko.Name + " to nezvladlo. Muzes prepnout na jineho nebo ho restartovat.";
             }
-            else if (pet.spi)
+            else if (zviratko.spi)
             {
-                lblStav.Text = pet.Name + " spi a nabira energii.";
+                lblStav.Text = zviratko.Name + " spi a nabira energii.";
             }
         }
 
@@ -109,15 +109,15 @@ namespace rpprojekt
                 name = "Mazlík";
             }
 
-            Tamagotchi pet = new Tamagotchi(name);
+            Tamagotchi zviratko = new Tamagotchi(name);
 
-            pets.Add(pet);
-            lstMazlicci.Items.Add(pet.Name);
-            selectedPetIndex = pets.Count - 1;
+            zvirata.Add(zviratko);
+            lstMazlicci.Items.Add(zviratko.Name);
+            vybranyIndex = zvirata.Count - 1;
 
-            txtJmeno.Text = pet.Name;
+            txtJmeno.Text = zviratko.Name;
             trkPorce.Value = 3;
-            lstMazlicci.SelectedIndex = selectedPetIndex;
+            lstMazlicci.SelectedIndex = vybranyIndex;
 
             timerHra.Start();
             stav("Novy mazlicek byl pridany.");
@@ -125,67 +125,67 @@ namespace rpprojekt
 
         private void btnKrm_Click(object sender, EventArgs e)
         {
-            Tamagotchi pet = null;
-            if (selectedPetIndex >= 0 && selectedPetIndex < pets.Count)
+            Tamagotchi zviratko = null;
+            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
             {
-                pet = pets[selectedPetIndex];
+                zviratko = zvirata[vybranyIndex];
             }
 
-            if (pet == null)
+            if (zviratko == null)
             {
                 return;
             }
 
-            pet.Feed(trkPorce.Value);
-            stav(pet.Name + " dostal jidlo.");
+            zviratko.Feed(trkPorce.Value);
+            stav(zviratko.Name + " dostal jidlo.");
         }
 
         private void btnHraj_Click(object sender, EventArgs e)
         {
-            Tamagotchi pet = null;
-            if (selectedPetIndex >= 0 && selectedPetIndex < pets.Count)
+            Tamagotchi zviratko = null;
+            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
             {
-                pet = pets[selectedPetIndex];
+                zviratko = zvirata[vybranyIndex];
             }
 
-            if (pet == null)
+            if (zviratko == null)
             {
                 return;
             }
 
-            pet.hrat();
-            stav(pet.Name + " si hral.");
+            zviratko.hrat();
+            stav(zviratko.Name + " si hral.");
         }
 
         private void btnSpi_Click(object sender, EventArgs e)
         {
-            Tamagotchi pet = null;
-            if (selectedPetIndex >= 0 && selectedPetIndex < pets.Count)
+            Tamagotchi zviratko = null;
+            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
             {
-                pet = pets[selectedPetIndex];
+                zviratko = zvirata[vybranyIndex];
             }
 
-            if (pet == null)
+            if (zviratko == null)
             {
                 return;
             }
 
-            pet.spat();
-            stav(pet.Name + " si odpocinul.");
+            zviratko.spat();
+            stav(zviratko.Name + " si odpocinul.");
         }
 
         private void timerHra_Tick(object sender, EventArgs e)
         {
-            if (pets.Count == 0)
+            if (zvirata.Count == 0)
             {
                 timerHra.Stop();
-                empty();
+                prazdno();
                 return;
             }
 
-            for (int i = 0; i < pets.Count; i++)
+            for (int i = 0; i < zvirata.Count; i++)
             {
-                pets[i].Tick();
+                zvirata[i].Tick();
             }
 
             stav("Cas plyne pro vsechny mazlicky...");
@@ -193,18 +193,18 @@ namespace rpprojekt
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            Tamagotchi pet = null;
-            if (selectedPetIndex >= 0 && selectedPetIndex < pets.Count)
+            Tamagotchi zviratko = null;
+            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
             {
-                pet = pets[selectedPetIndex];
+                zviratko = zvirata[vybranyIndex];
             }
 
-            if (pet == null)
+            if (zviratko == null)
             {
                 return;
             }
 
-            pet.reset(pet.Name);
+            zviratko.reset(zviratko.Name);
             stav("Mazlicek byl restartovan.");
         }
 
@@ -215,45 +215,45 @@ namespace rpprojekt
 
         private void lstMazlicci_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstMazlicci.SelectedIndex < 0 || lstMazlicci.SelectedIndex >= pets.Count)
+            if (lstMazlicci.SelectedIndex < 0 || lstMazlicci.SelectedIndex >= zvirata.Count)
             {
                 return;
             }
 
-            selectedPetIndex = lstMazlicci.SelectedIndex;
+            vybranyIndex = lstMazlicci.SelectedIndex;
             stav("Vybrany mazlicek.");
         }
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
-            if (pets.Count == 0)
+            if (zvirata.Count == 0)
             {
                 return;
             }
 
-            selectedPetIndex--;
-            if (selectedPetIndex < 0)
+            vybranyIndex--;
+            if (vybranyIndex < 0)
             {
-                selectedPetIndex = pets.Count - 1;
+                vybranyIndex = zvirata.Count - 1;
             }
 
-            lstMazlicci.SelectedIndex = selectedPetIndex;
+            lstMazlicci.SelectedIndex = vybranyIndex;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (pets.Count == 0)
+            if (zvirata.Count == 0)
             {
                 return;
             }
 
-            selectedPetIndex++;
-            if (selectedPetIndex >= pets.Count)
+            vybranyIndex++;
+            if (vybranyIndex >= zvirata.Count)
             {
-                selectedPetIndex = 0;
+                vybranyIndex = 0;
             }
 
-            lstMazlicci.SelectedIndex = selectedPetIndex;
+            lstMazlicci.SelectedIndex = vybranyIndex;
         }
     }
 }
