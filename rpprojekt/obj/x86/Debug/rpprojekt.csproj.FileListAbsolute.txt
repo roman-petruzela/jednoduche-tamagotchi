@@ -1,0 +1,9 @@
+c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\bin\Debug\rpprojekt.exe
+c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\bin\Debug\rpprojekt.pdb
+c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.Properties.Resources.resources
+c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.csproj.GenerateResource.cache
+c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.exe
+c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.pdb
+C:\Users\roman\documents\visual studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.Form1.resources
+c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.csproj.AssemblyReference.cache
+c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.csproj.CoreCompileInputs.cache
