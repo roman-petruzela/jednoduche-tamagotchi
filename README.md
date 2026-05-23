@@ -1,4 +1,4 @@
-# rpprojekt
+# Jednoduche tamagotchi
 
 Jednoducha formulova aplikace s tamagoci.
 
