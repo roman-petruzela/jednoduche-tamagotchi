@@ -42,26 +42,7 @@ namespace rpprojekt
 
         private void stav(string zprava)
         {
-            Tamagotchi zviratko = null;
-
-            if (vybrany >= 0 && vybrany < zvirata.Count)
-            {
-                zviratko = zvirata[vybrany];
-            }
-
-            if (zviratko == null)
-            {
-                lblNadpisZviratko.Text = "Zviratko: -";
-                lblHlad.Text = "Hlad: -";
-                lblNalada.Text = "Nalada: -";
-                lblEnergie.Text = "Energie: -";
-                lblVek.Text = "Vek: -";
-                lblStav.Text = zprava;
-                btnKrm.Enabled = false;
-                btnHraj.Enabled = false;
-                btnSpi.Enabled = false;
-                return;
-            }
+            Tamagotchi zviratko = zvirata[vybrany];
 
             lblNadpisZviratko.Text = "Zviratko: " + zviratko.Name + " (" + (vybrany + 1) + "/" + zvirata.Count + ")";
             lblStav.Text = zprava;
@@ -122,8 +103,7 @@ namespace rpprojekt
 
         private void btnKrm_Click(object sender, EventArgs e)
         {
-            Tamagotchi zviratko = null;
-            zviratko = zvirata[vybrany];
+            Tamagotchi zviratko = zvirata[vybrany];
 
             zviratko.Feed(trkPorce.Value);
             stav(zviratko.Name + " dostal jidlo.");
@@ -131,8 +111,7 @@ namespace rpprojekt
 
         private void btnHraj_Click(object sender, EventArgs e)
         {
-            Tamagotchi zviratko = null;
-            zviratko = zvirata[vybrany];
+            Tamagotchi zviratko = zvirata[vybrany];
 
             zviratko.hrat();
             stav(zviratko.Name + " si hral.");
@@ -140,16 +119,7 @@ namespace rpprojekt
 
         private void btnSpi_Click(object sender, EventArgs e)
         {
-            Tamagotchi zviratko = null;
-            if (vybrany >= 0 && vybrany < zvirata.Count)
-            {
-                zviratko = zvirata[vybrany];
-            }
-
-            if (zviratko == null)
-            {
-                return;
-            }
+            Tamagotchi zviratko = zvirata[vybrany];
 
             zviratko.spat();
             stav(zviratko.Name + " si odpocinul.");
@@ -174,16 +144,8 @@ namespace rpprojekt
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            Tamagotchi zviratko = null;
-            if (vybrany >= 0 && vybrany < zvirata.Count)
-            {
-                zviratko = zvirata[vybrany];
-            }
-
-            if (zviratko == null)
-            {
-                return;
-            }
+            Tamagotchi zviratko;
+            zviratko = zvirata[vybrany];
 
             zviratko.reset(zviratko.Name);
             stav("Mazlicek byl restartovan.");
