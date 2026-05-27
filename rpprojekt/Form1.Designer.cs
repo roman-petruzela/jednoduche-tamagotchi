@@ -94,7 +94,7 @@
             this.lblNadpisZviratko.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNadpisZviratko.Location = new System.Drawing.Point(13, 40);
             this.lblNadpisZviratko.Name = "lblNadpisZviratko";
-            this.lblNadpisZviratko.Size = new System.Drawing.Size(78, 20);
+            this.lblNadpisZviratko.Size = new System.Drawing.Size(89, 20);
             this.lblNadpisZviratko.TabIndex = 1;
             this.lblNadpisZviratko.Text = "Zviratko: -";
             // 
@@ -149,7 +149,6 @@
             this.pbEnergie.Name = "pbEnergie";
             this.pbEnergie.Size = new System.Drawing.Size(156, 18);
             this.pbEnergie.TabIndex = 7;
-            this.pbEnergie.Value = 0;
             // 
             // pbNalada
             // 
@@ -157,7 +156,6 @@
             this.pbNalada.Name = "pbNalada";
             this.pbNalada.Size = new System.Drawing.Size(156, 18);
             this.pbNalada.TabIndex = 6;
-            this.pbNalada.Value = 0;
             // 
             // pbHlad
             // 
@@ -165,14 +163,13 @@
             this.pbHlad.Name = "pbHlad";
             this.pbHlad.Size = new System.Drawing.Size(156, 18);
             this.pbHlad.TabIndex = 5;
-            this.pbHlad.Value = 0;
             // 
             // lblStav
             // 
             this.lblStav.AutoSize = true;
             this.lblStav.Location = new System.Drawing.Point(10, 143);
             this.lblStav.Name = "lblStav";
-            this.lblStav.Size = new System.Drawing.Size(32, 13);
+            this.lblStav.Size = new System.Drawing.Size(194, 13);
             this.lblStav.TabIndex = 4;
             this.lblStav.Text = "Nejsou tu zadni mazlicci. Klikni na Start.";
             // 
@@ -181,7 +178,7 @@
             this.lblVek.AutoSize = true;
             this.lblVek.Location = new System.Drawing.Point(10, 120);
             this.lblVek.Name = "lblVek";
-            this.lblVek.Size = new System.Drawing.Size(32, 13);
+            this.lblVek.Size = new System.Drawing.Size(35, 13);
             this.lblVek.TabIndex = 3;
             this.lblVek.Text = "Vek: -";
             // 
@@ -190,7 +187,7 @@
             this.lblEnergie.AutoSize = true;
             this.lblEnergie.Location = new System.Drawing.Point(10, 88);
             this.lblEnergie.Name = "lblEnergie";
-            this.lblEnergie.Size = new System.Drawing.Size(49, 13);
+            this.lblEnergie.Size = new System.Drawing.Size(52, 13);
             this.lblEnergie.TabIndex = 2;
             this.lblEnergie.Text = "Energie: -";
             // 
@@ -199,7 +196,7 @@
             this.lblNalada.AutoSize = true;
             this.lblNalada.Location = new System.Drawing.Point(10, 56);
             this.lblNalada.Name = "lblNalada";
-            this.lblNalada.Size = new System.Drawing.Size(47, 13);
+            this.lblNalada.Size = new System.Drawing.Size(50, 13);
             this.lblNalada.TabIndex = 1;
             this.lblNalada.Text = "Nalada: -";
             // 
@@ -208,14 +205,14 @@
             this.lblHlad.AutoSize = true;
             this.lblHlad.Location = new System.Drawing.Point(10, 24);
             this.lblHlad.Name = "lblHlad";
-            this.lblHlad.Size = new System.Drawing.Size(35, 13);
+            this.lblHlad.Size = new System.Drawing.Size(38, 13);
             this.lblHlad.TabIndex = 0;
             this.lblHlad.Text = "Hlad: -";
             // 
             // lblPorce
             // 
             this.lblPorce.AutoSize = true;
-            this.lblPorce.Location = new System.Drawing.Point(310, 40);
+            this.lblPorce.Location = new System.Drawing.Point(311, 40);
             this.lblPorce.Name = "lblPorce";
             this.lblPorce.Size = new System.Drawing.Size(56, 13);
             this.lblPorce.TabIndex = 6;
@@ -232,46 +229,46 @@
             // 
             // btnKrm
             // 
+            this.btnKrm.Enabled = false;
             this.btnKrm.Location = new System.Drawing.Point(303, 104);
             this.btnKrm.Name = "btnKrm";
             this.btnKrm.Size = new System.Drawing.Size(88, 30);
             this.btnKrm.TabIndex = 8;
             this.btnKrm.Text = "Krmit";
             this.btnKrm.UseVisualStyleBackColor = true;
-            this.btnKrm.Enabled = false;
             this.btnKrm.Click += new System.EventHandler(this.btnKrm_Click);
             // 
             // btnHraj
             // 
+            this.btnHraj.Enabled = false;
             this.btnHraj.Location = new System.Drawing.Point(397, 104);
             this.btnHraj.Name = "btnHraj";
             this.btnHraj.Size = new System.Drawing.Size(88, 30);
             this.btnHraj.TabIndex = 9;
             this.btnHraj.Text = "Hrat si";
             this.btnHraj.UseVisualStyleBackColor = true;
-            this.btnHraj.Enabled = false;
             this.btnHraj.Click += new System.EventHandler(this.btnHraj_Click);
             // 
             // btnSpi
             // 
-            this.btnSpi.Location = new System.Drawing.Point(303, 140);
+            this.btnSpi.Enabled = false;
+            this.btnSpi.Location = new System.Drawing.Point(303, 143);
             this.btnSpi.Name = "btnSpi";
             this.btnSpi.Size = new System.Drawing.Size(88, 30);
             this.btnSpi.TabIndex = 10;
             this.btnSpi.Text = "Spat";
             this.btnSpi.UseVisualStyleBackColor = true;
-            this.btnSpi.Enabled = false;
             this.btnSpi.Click += new System.EventHandler(this.btnSpi_Click);
             // 
             // btnRestart
             // 
-            this.btnRestart.Location = new System.Drawing.Point(397, 140);
+            this.btnRestart.Enabled = false;
+            this.btnRestart.Location = new System.Drawing.Point(397, 143);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(88, 30);
             this.btnRestart.TabIndex = 11;
             this.btnRestart.Text = "Restart";
             this.btnRestart.UseVisualStyleBackColor = true;
-            this.btnRestart.Enabled = false;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // lstMazlicci
@@ -285,24 +282,24 @@
             // 
             // btnPrev
             // 
+            this.btnPrev.Enabled = false;
             this.btnPrev.Location = new System.Drawing.Point(16, 275);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(75, 23);
             this.btnPrev.TabIndex = 13;
             this.btnPrev.Text = "Prev";
             this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Enabled = false;
             this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
             // 
             // btnNext
             // 
+            this.btnNext.Enabled = false;
             this.btnNext.Location = new System.Drawing.Point(97, 275);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 14;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Enabled = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // timerHra

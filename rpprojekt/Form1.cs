@@ -12,7 +12,7 @@ namespace rpprojekt
     public partial class Form1 : Form
     {
         private List<Tamagotchi> zvirata = new List<Tamagotchi>();
-        private int vybranyIndex = -1;
+        private int vybrany;
 
         public Form1()
         {
@@ -46,9 +46,9 @@ namespace rpprojekt
         {
             Tamagotchi zviratko = null;
 
-            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
+            if (vybrany >= 0 && vybrany < zvirata.Count)
             {
-                zviratko = zvirata[vybranyIndex];
+                zviratko = zvirata[vybrany];
             }
 
             if (zviratko == null)
@@ -67,7 +67,7 @@ namespace rpprojekt
                 return;
             }
 
-            lblNadpisZviratko.Text = "Zviratko: " + zviratko.Name + " (" + (vybranyIndex + 1) + "/" + zvirata.Count + ")";
+            lblNadpisZviratko.Text = "Zviratko: " + zviratko.Name + " (" + (vybrany + 1) + "/" + zvirata.Count + ")";
             lblStav.Text = zprava;
             lblHlad.Text = "Hlad: " + zviratko.hlad + " / 100";
             lblNalada.Text = "Nalada: " + zviratko.nalada + " / 100";
@@ -77,17 +77,19 @@ namespace rpprojekt
             pbHlad.Value = 100 - zviratko.hlad;
             pbNalada.Value = zviratko.nalada;
             pbEnergie.Value = zviratko.energie;
-
-            btnKrm.Enabled = zviratko.zije && !zviratko.spi && zviratko.ActionCooldown == 0;
-            btnHraj.Enabled = zviratko.zije && !zviratko.spi && zviratko.ActionCooldown == 0;
-            btnSpi.Enabled = zviratko.zije && !zviratko.spi && zviratko.ActionCooldown == 0;
+            if (zviratko.zije && !zviratko.spi && zviratko.ActionCooldown == 0)
+            {
+                btnKrm.Enabled = true;
+                btnHraj.Enabled = true;
+                btnSpi.Enabled = true;
+                }
             btnRestart.Enabled = true;
             btnPrev.Enabled = zvirata.Count > 1;
             btnNext.Enabled = zvirata.Count > 1;
 
             if (!zviratko.zije)
             {
-                lblStav.Text = zviratko.Name + " to nezvladlo. Muzes prepnout na jineho nebo ho restartovat.";
+                lblStav.Text = zviratko.Name + " to nezvladl.";
             }
             else if (zviratko.spi)
             {
@@ -98,11 +100,7 @@ namespace rpprojekt
         private void btnStart_Click(object sender, EventArgs e)
         {
             string name = txtJmeno.Text;
-            if (name == null)
-            {
-                name = "";
-            }
-
+            
             name = name.Trim();
             if (name == "")
             {
@@ -113,11 +111,11 @@ namespace rpprojekt
 
             zvirata.Add(zviratko);
             lstMazlicci.Items.Add(zviratko.Name);
-            vybranyIndex = zvirata.Count - 1;
+            vybrany = zvirata.Count - 1;
 
             txtJmeno.Text = zviratko.Name;
             trkPorce.Value = 3;
-            lstMazlicci.SelectedIndex = vybranyIndex;
+            lstMazlicci.SelectedIndex = vybrany;
 
             timerHra.Start();
             stav("Novy mazlicek byl pridany.");
@@ -126,15 +124,7 @@ namespace rpprojekt
         private void btnKrm_Click(object sender, EventArgs e)
         {
             Tamagotchi zviratko = null;
-            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
-            {
-                zviratko = zvirata[vybranyIndex];
-            }
-
-            if (zviratko == null)
-            {
-                return;
-            }
+            zviratko = zvirata[vybrany];
 
             zviratko.Feed(trkPorce.Value);
             stav(zviratko.Name + " dostal jidlo.");
@@ -143,15 +133,7 @@ namespace rpprojekt
         private void btnHraj_Click(object sender, EventArgs e)
         {
             Tamagotchi zviratko = null;
-            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
-            {
-                zviratko = zvirata[vybranyIndex];
-            }
-
-            if (zviratko == null)
-            {
-                return;
-            }
+            zviratko = zvirata[vybrany];
 
             zviratko.hrat();
             stav(zviratko.Name + " si hral.");
@@ -160,9 +142,9 @@ namespace rpprojekt
         private void btnSpi_Click(object sender, EventArgs e)
         {
             Tamagotchi zviratko = null;
-            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
+            if (vybrany >= 0 && vybrany < zvirata.Count)
             {
-                zviratko = zvirata[vybranyIndex];
+                zviratko = zvirata[vybrany];
             }
 
             if (zviratko == null)
@@ -194,9 +176,9 @@ namespace rpprojekt
         private void btnRestart_Click(object sender, EventArgs e)
         {
             Tamagotchi zviratko = null;
-            if (vybranyIndex >= 0 && vybranyIndex < zvirata.Count)
+            if (vybrany >= 0 && vybrany < zvirata.Count)
             {
-                zviratko = zvirata[vybranyIndex];
+                zviratko = zvirata[vybrany];
             }
 
             if (zviratko == null)
@@ -220,7 +202,7 @@ namespace rpprojekt
                 return;
             }
 
-            vybranyIndex = lstMazlicci.SelectedIndex;
+            vybrany = lstMazlicci.SelectedIndex;
             stav("Vybrany mazlicek.");
         }
 
@@ -231,13 +213,13 @@ namespace rpprojekt
                 return;
             }
 
-            vybranyIndex--;
-            if (vybranyIndex < 0)
+            vybrany--;
+            if (vybrany < 0)
             {
-                vybranyIndex = zvirata.Count - 1;
+                vybrany = zvirata.Count - 1;
             }
 
-            lstMazlicci.SelectedIndex = vybranyIndex;
+            lstMazlicci.SelectedIndex = vybrany;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -247,13 +229,13 @@ namespace rpprojekt
                 return;
             }
 
-            vybranyIndex++;
-            if (vybranyIndex >= zvirata.Count)
+            vybrany++;
+            if (vybrany >= zvirata.Count)
             {
-                vybranyIndex = 0;
+                vybrany = 0;
             }
 
-            lstMazlicci.SelectedIndex = vybranyIndex;
+            lstMazlicci.SelectedIndex = vybrany;
         }
     }
 }

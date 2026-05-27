@@ -5,5 +5,4 @@ c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86
 c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.exe
 c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.pdb
 C:\Users\roman\documents\visual studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.Form1.resources
-c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.csproj.AssemblyReference.cache
-c:\Users\roman\Documents\Visual Studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.csproj.CoreCompileInputs.cache
+C:\Users\roman\documents\visual studio 2010\Projects\rpprojekt\rpprojekt\obj\x86\Debug\rpprojekt.csprojResolveAssemblyReference.cache
