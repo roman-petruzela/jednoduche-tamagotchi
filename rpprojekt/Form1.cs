@@ -36,8 +36,6 @@ namespace rpprojekt
             btnHraj.Enabled = false;
             btnSpi.Enabled = false;
             btnRestart.Enabled = false;
-            btnPrev.Enabled = false;
-            btnNext.Enabled = false;
 
             timerHra.Stop();
         }
@@ -62,8 +60,6 @@ namespace rpprojekt
                 btnKrm.Enabled = false;
                 btnHraj.Enabled = false;
                 btnSpi.Enabled = false;
-                btnPrev.Enabled = false;
-                btnNext.Enabled = false;
                 return;
             }
 
@@ -83,9 +79,12 @@ namespace rpprojekt
                 btnHraj.Enabled = true;
                 btnSpi.Enabled = true;
                 }
+            else{
+                btnKrm.Enabled = false;
+                btnHraj.Enabled = false;
+                btnSpi.Enabled = false;
+                }
             btnRestart.Enabled = true;
-            btnPrev.Enabled = zvirata.Count > 1;
-            btnNext.Enabled = zvirata.Count > 1;
 
             if (!zviratko.zije)
             {
@@ -100,7 +99,7 @@ namespace rpprojekt
         private void btnStart_Click(object sender, EventArgs e)
         {
             string name = txtJmeno.Text;
-            
+
             name = name.Trim();
             if (name == "")
             {

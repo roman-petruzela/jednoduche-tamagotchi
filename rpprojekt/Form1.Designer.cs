@@ -24,8 +24,6 @@
         private System.Windows.Forms.Button btnSpi;
         private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.ListBox lstMazlicci;
-        private System.Windows.Forms.Button btnPrev;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Timer timerHra;
 
         /// <summary>
@@ -71,8 +69,6 @@
             this.btnSpi = new System.Windows.Forms.Button();
             this.btnRestart = new System.Windows.Forms.Button();
             this.lstMazlicci = new System.Windows.Forms.ListBox();
-            this.btnPrev = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
             this.timerHra = new System.Windows.Forms.Timer(this.components);
             this.grpStav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trkPorce)).BeginInit();
@@ -92,7 +88,7 @@
             // 
             this.lblNadpisZviratko.AutoSize = true;
             this.lblNadpisZviratko.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNadpisZviratko.Location = new System.Drawing.Point(13, 40);
+            this.lblNadpisZviratko.Location = new System.Drawing.Point(12, 33);
             this.lblNadpisZviratko.Name = "lblNadpisZviratko";
             this.lblNadpisZviratko.Size = new System.Drawing.Size(89, 20);
             this.lblNadpisZviratko.TabIndex = 1;
@@ -136,9 +132,9 @@
             this.grpStav.Controls.Add(this.lblEnergie);
             this.grpStav.Controls.Add(this.lblNalada);
             this.grpStav.Controls.Add(this.lblHlad);
-            this.grpStav.Location = new System.Drawing.Point(16, 104);
+            this.grpStav.Location = new System.Drawing.Point(12, 107);
             this.grpStav.Name = "grpStav";
-            this.grpStav.Size = new System.Drawing.Size(271, 165);
+            this.grpStav.Size = new System.Drawing.Size(271, 173);
             this.grpStav.TabIndex = 5;
             this.grpStav.TabStop = false;
             this.grpStav.Text = "Stav zviratka";
@@ -212,7 +208,7 @@
             // lblPorce
             // 
             this.lblPorce.AutoSize = true;
-            this.lblPorce.Location = new System.Drawing.Point(311, 40);
+            this.lblPorce.Location = new System.Drawing.Point(314, 58);
             this.lblPorce.Name = "lblPorce";
             this.lblPorce.Size = new System.Drawing.Size(56, 13);
             this.lblPorce.TabIndex = 6;
@@ -220,7 +216,7 @@
             // 
             // trkPorce
             // 
-            this.trkPorce.Location = new System.Drawing.Point(303, 56);
+            this.trkPorce.Location = new System.Drawing.Point(303, 74);
             this.trkPorce.Minimum = 1;
             this.trkPorce.Name = "trkPorce";
             this.trkPorce.Size = new System.Drawing.Size(188, 45);
@@ -230,7 +226,7 @@
             // btnKrm
             // 
             this.btnKrm.Enabled = false;
-            this.btnKrm.Location = new System.Drawing.Point(303, 104);
+            this.btnKrm.Location = new System.Drawing.Point(303, 114);
             this.btnKrm.Name = "btnKrm";
             this.btnKrm.Size = new System.Drawing.Size(88, 30);
             this.btnKrm.TabIndex = 8;
@@ -241,7 +237,7 @@
             // btnHraj
             // 
             this.btnHraj.Enabled = false;
-            this.btnHraj.Location = new System.Drawing.Point(397, 104);
+            this.btnHraj.Location = new System.Drawing.Point(397, 114);
             this.btnHraj.Name = "btnHraj";
             this.btnHraj.Size = new System.Drawing.Size(88, 30);
             this.btnHraj.TabIndex = 9;
@@ -252,7 +248,7 @@
             // btnSpi
             // 
             this.btnSpi.Enabled = false;
-            this.btnSpi.Location = new System.Drawing.Point(303, 143);
+            this.btnSpi.Location = new System.Drawing.Point(303, 149);
             this.btnSpi.Name = "btnSpi";
             this.btnSpi.Size = new System.Drawing.Size(88, 30);
             this.btnSpi.TabIndex = 10;
@@ -263,7 +259,7 @@
             // btnRestart
             // 
             this.btnRestart.Enabled = false;
-            this.btnRestart.Location = new System.Drawing.Point(397, 143);
+            this.btnRestart.Location = new System.Drawing.Point(397, 149);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(88, 30);
             this.btnRestart.TabIndex = 11;
@@ -274,33 +270,11 @@
             // lstMazlicci
             // 
             this.lstMazlicci.FormattingEnabled = true;
-            this.lstMazlicci.Location = new System.Drawing.Point(303, 182);
+            this.lstMazlicci.Location = new System.Drawing.Point(303, 185);
             this.lstMazlicci.Name = "lstMazlicci";
             this.lstMazlicci.Size = new System.Drawing.Size(182, 95);
             this.lstMazlicci.TabIndex = 12;
             this.lstMazlicci.SelectedIndexChanged += new System.EventHandler(this.lstMazlicci_SelectedIndexChanged);
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.Enabled = false;
-            this.btnPrev.Location = new System.Drawing.Point(16, 275);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(75, 23);
-            this.btnPrev.TabIndex = 13;
-            this.btnPrev.Text = "Prev";
-            this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.Enabled = false;
-            this.btnNext.Location = new System.Drawing.Point(97, 275);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 23);
-            this.btnNext.TabIndex = 14;
-            this.btnNext.Text = "Next";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // timerHra
             // 
@@ -311,11 +285,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 310);
+            this.ClientSize = new System.Drawing.Size(506, 292);
             this.Controls.Add(this.btnRestart);
             this.Controls.Add(this.lstMazlicci);
-            this.Controls.Add(this.btnNext);
-            this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnSpi);
             this.Controls.Add(this.btnHraj);
             this.Controls.Add(this.btnKrm);
