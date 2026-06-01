@@ -11,7 +11,7 @@ namespace rpprojekt
         public int vek;
         public bool zije;
         public bool spi;
-        public int ActionCooldown;
+        public int cooldown;
 
         public Tamagotchi(string name)
         {
@@ -28,13 +28,13 @@ namespace rpprojekt
             vek = 0;
             zije = true;
             spi = false;
-            ActionCooldown = 0;
+            cooldown = 0;
             kontrola();
         }
 
         public void Feed(int amount)
         {
-            if (!zije || spi || ActionCooldown > 0)
+            if (!zije || spi || cooldown > 0)
             {
                 return;
             }
@@ -55,13 +55,13 @@ namespace rpprojekt
                 energie += 1;
             }
 
-            ActionCooldown = 1;
+            cooldown = 1;
             kontrola();
         }
 
         public void hrat()
         {
-            if (!zije || spi || ActionCooldown > 0)
+            if (!zije || spi || cooldown > 0)
             {
                 return;
             }
@@ -69,19 +69,19 @@ namespace rpprojekt
             nalada += 10;
             energie -= 10;
             hlad += 6;
-            ActionCooldown = 1;
+            cooldown = 1;
             kontrola();
         }
 
         public void spat()
         {
-            if (!zije || ActionCooldown > 0)
+            if (!zije || cooldown > 0)
             {
                 return;
             }
 
             spi = true;
-            ActionCooldown = 1;
+            cooldown = 1;
             kontrola();
         }
 
@@ -94,9 +94,9 @@ namespace rpprojekt
 
             vek += 1;
 
-            if (ActionCooldown > 0)
+            if (cooldown > 0)
             {
-                ActionCooldown -= 1;
+                cooldown -= 1;
             }
 
             if (spi)
