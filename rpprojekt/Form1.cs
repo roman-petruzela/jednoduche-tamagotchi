@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,7 +37,7 @@ namespace rpprojekt
             btnSpi.Enabled = false;
             btnRestart.Enabled = false;
 
-            timerHra.Stop();
+            
         }
 
         private void stav(string zprava)
@@ -54,13 +54,13 @@ namespace rpprojekt
             pbHlad.Value = 100 - zviratko.hlad;
             pbNalada.Value = zviratko.nalada;
             pbEnergie.Value = zviratko.energie;
-            if (zviratko.zije && !zviratko.spi && zviratko.ActionCooldown == 0)
+            if (zviratko.zije && !zviratko.spi && zviratko.cooldown == 0)
             {
                 btnKrm.Enabled = true;
                 btnHraj.Enabled = true;
                 btnSpi.Enabled = true;
                 }
-            else{
+            else {
                 btnKrm.Enabled = false;
                 btnHraj.Enabled = false;
                 btnSpi.Enabled = false;
@@ -80,11 +80,11 @@ namespace rpprojekt
         private void btnStart_Click(object sender, EventArgs e)
         {
             string name = txtJmeno.Text;
-
             name = name.Trim();
             if (name == "")
             {
-                name = "Mazlík";
+                stav("Zadejte jmeno mazlika");
+                return;
             }
 
             Tamagotchi zviratko = new Tamagotchi(name);
@@ -92,12 +92,11 @@ namespace rpprojekt
             zvirata.Add(zviratko);
             lstMazlicci.Items.Add(zviratko.Name);
             vybrany = zvirata.Count - 1;
-
             txtJmeno.Text = zviratko.Name;
             trkPorce.Value = 3;
             lstMazlicci.SelectedIndex = vybrany;
-
             timerHra.Start();
+            txtJmeno.Text = "";
             stav("Novy mazlicek byl pridany.");
         }
 
@@ -105,7 +104,7 @@ namespace rpprojekt
         {
             Tamagotchi zviratko = zvirata[vybrany];
 
-            zviratko.Feed(trkPorce.Value);
+            zviratko.nazrat(trkPorce.Value);
             stav(zviratko.Name + " dostal jidlo.");
         }
 
@@ -129,7 +128,6 @@ namespace rpprojekt
         {
             if (zvirata.Count == 0)
             {
-                timerHra.Stop();
                 prazdno();
                 return;
             }
@@ -158,45 +156,8 @@ namespace rpprojekt
 
         private void lstMazlicci_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstMazlicci.SelectedIndex < 0 || lstMazlicci.SelectedIndex >= zvirata.Count)
-            {
-                return;
-            }
-
             vybrany = lstMazlicci.SelectedIndex;
             stav("Vybrany mazlicek.");
-        }
-
-        private void btnPrev_Click(object sender, EventArgs e)
-        {
-            if (zvirata.Count == 0)
-            {
-                return;
-            }
-
-            vybrany--;
-            if (vybrany < 0)
-            {
-                vybrany = zvirata.Count - 1;
-            }
-
-            lstMazlicci.SelectedIndex = vybrany;
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            if (zvirata.Count == 0)
-            {
-                return;
-            }
-
-            vybrany++;
-            if (vybrany >= zvirata.Count)
-            {
-                vybrany = 0;
-            }
-
-            lstMazlicci.SelectedIndex = vybrany;
         }
     }
 }
