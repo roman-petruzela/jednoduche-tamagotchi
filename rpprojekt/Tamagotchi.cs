@@ -32,14 +32,14 @@ namespace rpprojekt
             kontrola();
         }
 
-        public void Feed(int amount)
+        public void nazrat(int amount)
         {
             if (!zije || spi || cooldown > 0)
             {
                 return;
             }
 
-            int jidlo = amount * 10;
+            int jidlo = amount * 5;
 
             if (jidlo > hlad)
             {
@@ -62,9 +62,7 @@ namespace rpprojekt
         public void hrat()
         {
             if (!zije || spi || cooldown > 0)
-            {
                 return;
-            }
 
             nalada += 10;
             energie -= 10;
@@ -76,9 +74,7 @@ namespace rpprojekt
         public void spat()
         {
             if (!zije || cooldown > 0)
-            {
                 return;
-            }
 
             spi = true;
             cooldown = 1;
@@ -88,27 +84,16 @@ namespace rpprojekt
         public void Tick()
         {
             if (!zije)
-            {
                 return;
-            }
-
             vek += 1;
-
             if (cooldown > 0)
-            {
                 cooldown -= 1;
-            }
-
             if (spi)
             {
                 energie += 14;
-                hlad += 1;
-                nalada += 1;
-
+                hlad += 5;
                 if (energie >= 95)
-                {
                     spi = false;
-                }
             }
             else
             {
@@ -121,7 +106,6 @@ namespace rpprojekt
                     nalada -= 2;
                 }
             }
-
             kontrola();
         }
 
