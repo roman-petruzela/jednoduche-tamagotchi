@@ -1,4 +1,4 @@
-﻿namespace rpprojekt
+namespace rpprojekt
 {
     partial class Form1
     {
@@ -97,7 +97,7 @@
             // lblJmeno
             // 
             this.lblJmeno.AutoSize = true;
-            this.lblJmeno.Location = new System.Drawing.Point(13, 74);
+            this.lblJmeno.Location = new System.Drawing.Point(16, 70);
             this.lblJmeno.Name = "lblJmeno";
             this.lblJmeno.Size = new System.Drawing.Size(41, 13);
             this.lblJmeno.TabIndex = 2;
@@ -105,7 +105,7 @@
             // 
             // txtJmeno
             // 
-            this.txtJmeno.Location = new System.Drawing.Point(58, 71);
+            this.txtJmeno.Location = new System.Drawing.Point(58, 67);
             this.txtJmeno.Name = "txtJmeno";
             this.txtJmeno.Size = new System.Drawing.Size(148, 20);
             this.txtJmeno.TabIndex = 3;
@@ -114,7 +114,7 @@
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(212, 69);
+            this.btnStart.Location = new System.Drawing.Point(208, 65);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 23);
             this.btnStart.TabIndex = 4;
@@ -141,14 +141,14 @@
             // 
             // pbEnergie
             // 
-            this.pbEnergie.Location = new System.Drawing.Point(98, 83);
+            this.pbEnergie.Location = new System.Drawing.Point(98, 88);
             this.pbEnergie.Name = "pbEnergie";
             this.pbEnergie.Size = new System.Drawing.Size(156, 18);
             this.pbEnergie.TabIndex = 7;
             // 
             // pbNalada
             // 
-            this.pbNalada.Location = new System.Drawing.Point(98, 51);
+            this.pbNalada.Location = new System.Drawing.Point(98, 54);
             this.pbNalada.Name = "pbNalada";
             this.pbNalada.Size = new System.Drawing.Size(156, 18);
             this.pbNalada.TabIndex = 6;
